@@ -11,6 +11,7 @@ public class DFS {
         node.getRight().setRight(17);
 
         System.out.println(hasPathToSum(node, 20));
+        System.out.println(getPathWithMaxSum(node));
     }
 
     private static boolean hasPathToSum(TreeNode<Integer> root, int targetSum) {
@@ -23,5 +24,21 @@ public class DFS {
 
         int remainingSum = targetSum - root.getData();
         return hasPathToSum(root.getLeft(), remainingSum) ||  hasPathToSum(root.getRight(), remainingSum);
+    }
+
+
+    private static int getPathWithMaxSum(TreeNode<Integer> root){
+        int maxPathSum = 0;
+        if(root == null)
+            return 0;
+
+        final boolean isLeaf = root.getRight() == null & root.getLeft() == null;
+        if(isLeaf){
+            //maxPathSum
+            return root.getData();
+        }
+
+        maxPathSum = Math.max(getPathWithMaxSum(root.getLeft()),getPathWithMaxSum(root.getRight()));
+        return maxPathSum +=  maxPathSum;
     }
 }
