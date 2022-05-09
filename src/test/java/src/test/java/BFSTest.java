@@ -1,17 +1,20 @@
 package src.test.java;
 
 
+import org.junit.Test;
+import org.junit.runner.RunWith;
+import org.junit.runners.JUnit4;
+import src.main.java.graph.BFS;
+import src.main.java.graph.MyGraph;
 
-import org.junit.jupiter.api.DynamicTest;
-import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertIterableEquals;
+import static org.junit.Assert.assertEquals;
 
-
-class BFSTest {
+@RunWith(JUnit4.class)
+public class BFSTest {
     @Test
     void bfs(){
         MyGraph testGraph = new MyGraph(5);
@@ -23,6 +26,6 @@ class BFSTest {
 
         List<Integer> result  = BFS.bfs(testGraph, 0);
         List<Integer> expected = Arrays.asList(0,1,2,3,4);
-        assertIterableEquals(expected, result);
+        assertEquals(expected, result);
     }
 }
