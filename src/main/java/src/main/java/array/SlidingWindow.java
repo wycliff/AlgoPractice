@@ -1,23 +1,37 @@
 package src.main.java.array;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class SlidingWindow {
 
     /***
+     * Dynamic programming
      * Given an array on n integers find the average of all subarrays of K contiguous elements
      * and return them in a seperate array.
      * Example: [2,1,5,1,3,2] k=3
      * [8/3, 7/3, 9/3, 6,3]
+     * @return
      */
 
-    private double[] subArrayAverage(int[] S, int K) {
+    private static Double[] subArrayAverage(int[] S, int K) {
         int windowStart = 0;
-        int windowEnd = 0;
+        List<Double> output = new ArrayList<>();
 
-//        for(int i = 0;  ){
-//
-//        }
+        for (int i = windowStart; i < S.length - K + 1; i++) {
+            int windowSum = 0;
+            for (int j = 0; j < K; j++) {
+                windowSum = windowSum + S[i+j];
+            }
+            double average = windowSum/3d;
+            output.add(average);
+        }
 
-        return new double[]{};
+        //Convert list to double
+        Double[] doubleArray = new Double[output.size()];
+        output.toArray(doubleArray);
+
+        return doubleArray;
     }
 
 
@@ -25,12 +39,11 @@ public class SlidingWindow {
      * Given an array on n integers find the max sum of all subarrays of K contiguous elements
      * and return them in a seperate array.
      * Example: [2,1,5,1,3,2] k=3
-     * soln = 9 from 2+1+5
+     * soln = 9 from
+     * 5+1+3
      */
 
     private static int subArrayMaxSum(int[] s, int k) {
-        int windowStart = 0;
-        int windowEnd = 0;
         int maxSum = Integer.MIN_VALUE;
 
         // Consider all blocks starting with i.
@@ -46,7 +59,8 @@ public class SlidingWindow {
     }
 
     public static void main(String[] args) {
-        int[] array = {2,1,5,1,3,2};
+        int[] array = {2, 1, 5, 1, 3, 2};
         System.out.println(subArrayMaxSum(array, 3));
+        System.out.println(subArrayAverage(array, 3));
     }
 }
