@@ -34,6 +34,8 @@ public class DFS {
 
             while (adjacencyIterator.hasNext()) {
                 int temp = adjacencyIterator.next();
+                System.out.println("iterator return: "+ temp);
+
                 //Is the vertex visited
                 if (!boolArray[temp]) {
                     boolArray[temp] = true;
@@ -41,6 +43,7 @@ public class DFS {
                 }
             }
         }
+
         return output;
     }
 
@@ -51,7 +54,6 @@ public class DFS {
 
         testGraph.addEdge(1, 3);
         testGraph.addEdge(1, 4);
-
 
         System.out.println(dfs(testGraph, 0));
     }

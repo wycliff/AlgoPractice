@@ -1,6 +1,6 @@
 package src.main.java.trees;
 
-public class DFS {
+public class TreeOperations {
     public static void main(String[] args) {
         TreeNode<Integer> node = new TreeNode<>(10);
         node.setLeft(6);
