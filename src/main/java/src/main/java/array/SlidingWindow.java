@@ -1,7 +1,6 @@
 package src.main.java.array;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class SlidingWindow {
 
@@ -58,8 +57,11 @@ public class SlidingWindow {
         return maxSum;
     }
 
+
+
+
     public static void main(String[] args) {
-        int[] array = {2, 1, 5, 1, 3, 2};
+        int[] array = {1,3,6,4,1,2};
         System.out.println(subArrayMaxSum(array, 3));
         System.out.println(subArrayAverage(array, 3));
     }

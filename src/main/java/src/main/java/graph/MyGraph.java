@@ -22,6 +22,8 @@ public class MyGraph {
         this.adjacencyList[source].add(destination);
     }
 
+
+    //no of vertices
     public int getVertices() {
         return this.vertices;
     }

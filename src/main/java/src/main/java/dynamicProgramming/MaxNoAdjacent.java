@@ -4,7 +4,7 @@ public class MaxNoAdjacent {
 
     /***
      * Dynamic programming : Array
-     * Given an array on n integers find the max sum of non adjacent integers
+     * Given an array on n integers find the max sum of non-adjacent integers
      * return 0 if the array is empty
      * Example: [75, 105, 120, 75, 90, 135]
      * Solution :  330  = 75 + 120 + 135

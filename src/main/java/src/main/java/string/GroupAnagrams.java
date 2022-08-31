@@ -34,6 +34,7 @@ public class GroupAnagrams {
             Arrays.sort(keyChars);
             String key = String.valueOf(keyChars);
 
+
             if(!listMap.containsKey(key)){
                 List anagrams = new ArrayList<String>();
                 listMap.put(key, anagrams);

@@ -3,10 +3,10 @@ package src.main.java.trees;
 import static src.main.java.trees.TreeNode.visit;
 
 public class PostOrderTraversal {
-    static void inOrderTraversal(TreeNode node) {
+    static void postOrderTraversal(TreeNode node) {
         if (node != null) {
-            inOrderTraversal(node.getLeft());
-            inOrderTraversal(node.getRight());
+            postOrderTraversal(node.getLeft());
+            postOrderTraversal(node.getRight());
             visit(node);
         }
     }
@@ -20,6 +20,6 @@ public class PostOrderTraversal {
         node.getRight().setLeft(13);
         node.getRight().setRight(17);
 
-        inOrderTraversal(node);
+        postOrderTraversal(node);
     }
 }

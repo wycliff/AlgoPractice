@@ -3,7 +3,7 @@ package src.main.java.trees;
 import java.util.*;
 
 public class LevelOrderTraversal {
-    static List<Integer> levelOrderTraversal(TreeNode node, int nodeCount) {
+    static List<Integer> levelOrderTraversal(TreeNode node) {
         List<Integer> output = new ArrayList();
 
         if (node == null) {
@@ -12,35 +12,20 @@ public class LevelOrderTraversal {
 
         //Initialize queue
         //todo Queue of nodes : Incomplete
-        Queue<Integer> bfsQueue = new LinkedList<>();
+        Queue<TreeNode> bfsQueue = new LinkedList<>();
 
         //Mark visited and enqueue
-        bfsQueue.add((int) node.getData());
+        bfsQueue.add(node);
 
-        TreeNode currentNode = node;
         while (!bfsQueue.isEmpty()) {
-            Integer currNode = bfsQueue.poll();
-            output.add(currNode);
+            TreeNode currNode = bfsQueue.poll();
+            output.add((Integer) currNode.getData());
 
-            if (currentNode.getLeft().getData() != null)
-                bfsQueue.add((int) currentNode.getLeft().getData());
+            if (currNode.getLeft() != null)
+                bfsQueue.add(currNode.getLeft());
 
-            if (currentNode.getLeft().getData() != null)
-                bfsQueue.add((int) currentNode.getRight().getData());
-
-            for (int i = 0; i < 2; i++) {
-                Integer leftNode = bfsQueue.poll();
-                output.add(leftNode);
-
-                currentNode = node.getLeft();
-
-                if (currentNode.getLeft().getData() != null)
-                    bfsQueue.add((int) currentNode.getLeft().getData());
-
-                if (currentNode.getRight().getData() != null)
-                    bfsQueue.add((int) currentNode.getRight().getData());
-            }
-            
+            if (currNode.getLeft() != null)
+                bfsQueue.add(currNode.getRight());
         }
         return output;
     }
@@ -54,6 +39,9 @@ public class LevelOrderTraversal {
         node.getRight().setLeft(13);
         node.getRight().setRight(17);
 
-        levelOrderTraversal(node, 7);
+        List<Integer> output = levelOrderTraversal(node);
+        for (int i = 0; i < output.size(); i++) {
+            System.out.println(output.get(i));
+        }
     }
 }
