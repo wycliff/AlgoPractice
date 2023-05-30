@@ -7,7 +7,6 @@
 /build
 /captures
 .externalNativeBuild
-/app/stagingFlavor
 /.idea/misc.xml
 report.xml
 /buildSrc/build/

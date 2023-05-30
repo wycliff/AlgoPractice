@@ -20,9 +20,9 @@ public class SlidingWindow {
         for (int i = windowStart; i < S.length - K + 1; i++) {
             int windowSum = 0;
             for (int j = 0; j < K; j++) {
-                windowSum = windowSum + S[i+j];
+                windowSum = windowSum + S[i + j];
             }
-            double average = windowSum/3d;
+            double average = windowSum / 3d;
             output.add(average);
         }
 
@@ -42,6 +42,23 @@ public class SlidingWindow {
      * 5+1+3
      */
 
+    private static int maxVal(int[] S, int k) { //no look practice
+        int maxValue = Integer.MIN_VALUE;
+
+        for (int i = 0; i < S.length - k + 1; i++) {
+            int sum = 0;
+            for (int j = 0; j < k; j++) {
+                sum = sum + S[i + j];
+            }
+            if(sum > maxValue){
+                maxValue = sum;
+            }
+        }
+
+        return maxValue;
+    }
+
+
     private static int subArrayMaxSum(int[] s, int k) {
         int maxSum = Integer.MIN_VALUE;
 
@@ -58,11 +75,14 @@ public class SlidingWindow {
     }
 
 
-
-
     public static void main(String[] args) {
-        int[] array = {1,3,6,4,1,2};
-        System.out.println(subArrayMaxSum(array, 3));
-        System.out.println(subArrayAverage(array, 3));
+        int[] array = {1, 3, 6, 4, 1, 2};
+
+         System.out.println(subArrayMaxSum(array, 3));
+
+        Double[] arr = subArrayAverage(array, 3);
+        for (int i = 0; i < array.length - 3 + 1; i++) {
+            System.out.println(arr[i]);
+        }
     }
 }

@@ -73,6 +73,5 @@ public class MinCoinsChange {
         //int[] array = {1,2,4};
         int[] array = {39, 45, 130, 40, 4, 1, 60, 75};
         System.out.println(minNumberOfCoinsForChange2(135, array));
-
     }
 }

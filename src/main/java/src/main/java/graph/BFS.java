@@ -40,6 +40,15 @@ public class BFS {
                     bfsQueue.add(temp);
                 }
             }
+
+            //or
+//            for (int temp : adjacencyList) {
+//                //Is the vertex visited
+//                if (!boolArray[temp]) {
+//                    boolArray[temp] = true;
+//                    bfsQueue.add(temp);
+//                }
+//            }
         }
         return output;
     }
@@ -51,6 +60,7 @@ public class BFS {
 
         testGraph.addEdge(1, 3);
         testGraph.addEdge(1, 4);
+     //   testGraph.addEdge(2, 4);
 
 
         //Step throughs
