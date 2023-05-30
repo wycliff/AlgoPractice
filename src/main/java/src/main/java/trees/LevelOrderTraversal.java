@@ -2,7 +2,9 @@ package src.main.java.trees;
 
 import java.util.*;
 
-public class LevelOrderTraversal {
+
+//BFS
+public class LevelOrderTraversal  {
     static List<Integer> levelOrderTraversal(TreeNode node) {
         List<Integer> output = new ArrayList();
 
@@ -24,7 +26,7 @@ public class LevelOrderTraversal {
             if (currNode.getLeft() != null)
                 bfsQueue.add(currNode.getLeft());
 
-            if (currNode.getLeft() != null)
+            if (currNode.getRight() != null)
                 bfsQueue.add(currNode.getRight());
         }
         return output;
