@@ -42,6 +42,16 @@ public class DFS {
                     dfsStack.push(temp);
                 }
             }
+            //or
+//            for (int temp : adjacencyList) {
+//                System.out.println("iterator return: " + temp);
+//
+//                //Is the vertex visited
+//                if (!boolArray[temp]) {
+//                    boolArray[temp] = true;
+//                    dfsStack.push(temp);
+//                }
+//            }
         }
 
         return output;
