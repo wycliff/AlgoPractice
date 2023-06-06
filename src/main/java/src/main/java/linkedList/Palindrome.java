@@ -39,6 +39,10 @@ public class Palindrome {
         Node p2 = head; // curr
         Node p3 = null; // next
 
+
+      //  1 -> 2  -> 3 -> 4
+
+
         while (p2 != null) {
             p3 = p2.next;
             p2.next = p1;
