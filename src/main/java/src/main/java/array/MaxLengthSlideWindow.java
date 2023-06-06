@@ -22,6 +22,7 @@ package src.main.java.array;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MaxLengthSlideWindow {
     public static void main(String[] args) {
@@ -60,6 +61,17 @@ public class MaxLengthSlideWindow {
                 return true;
             }
         }
+
+        //method 2
+//        AtomicBoolean isValid = new AtomicBoolean(false);
+//        hash.forEach(
+//                (key,value) ->{
+//                    int arrayLength = A.length;
+//                    if(arrayLength - value<=3){
+//                        isValid.set(true);
+//                    }
+//                }
+//        );
 
         return false;
     }
