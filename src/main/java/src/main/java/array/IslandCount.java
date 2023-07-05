@@ -37,7 +37,7 @@ public class IslandCount {
     }
 
 
-    //not sure if this is BFS or DFS = its DFS done recursively
+    //DFS done recursively
     public static void dfsNode(char[][] grid, int i , int j){
         //check boundaries
         if(i<0 || j<0 || i>= grid.length || j>=grid[i].length || grid[i][j]=='0')
