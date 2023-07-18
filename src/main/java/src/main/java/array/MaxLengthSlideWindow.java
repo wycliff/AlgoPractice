@@ -22,42 +22,80 @@ package src.main.java.array;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.concurrent.atomic.AtomicBoolean;
 
 public class MaxLengthSlideWindow {
     public static void main(String[] args) {
         //input
-        int[] A = {1, 1, -10, 3, -10};
-        System.out.println(isValid(A));
+        int[] A = {1, 1, -10, 3, -10, 3, -10};
+        //int[] A = {-9, 8};
+        //int[] A = {2, 3, 3, 3, 3, 1};
+        //int[] A = {3, 3, 2, 1, 2, 2, 9, 3, 3};
+        System.out.println(solution1(A));
     }
 
-    //check different lengths for valid replacements and return the Max length
-    public int solution(int[] A){
+    //Check different lengths for valid replacements and return the Max length
+    public static int solution1(int[] A) {
+        //base case : up to 4 items, it will always be the length of the array
+        if (A.length <= 4) {
+            return A.length;
+        }
+
         int maxLength = 0;
+        int k = 4; //window size
+        int start = 0;
+        int l = A.length;
+        int i = start;
+
+        while (i + k < l) {
+            do {
+                k += 1;
+            }
+            while (isValid(subArray(i, k, A)) && k<l);
+
+            if (!isValid(subArray(i, k, A))) {
+                k -= 1;
+            }
+
+            maxLength = Math.max(k, maxLength);
+            i++;
+        }
 
         return maxLength;
     }
 
+    //generate subarray
+    public static int[] subArray(int start, int windowSize, int[] A) {
+        int[] subArray = new int[windowSize];
+        for (int i = 0; i < windowSize; i++) {
+            //check bounds
+            if (A.length < (i + start) + 1)
+                break;
+            subArray[i] = A[i + start];
+        }
+        return subArray;
+    }
+
+
     //true, if we can replace at most 3 elements and get all identical elements
-    public static boolean isValid(int[] A){
+    public static boolean isValid(int[] A) {
         HashMap<Integer, Integer> hash = new HashMap();
 
         //creating the hashmap
-        for(int i=0; i<A.length ; i++){
-            if(!hash.containsKey(A[i])){
-                hash.put(A[i],1);
-            }else{
+        for (int i = 0; i < A.length; i++) {
+            if (!hash.containsKey(A[i])) {
+                hash.put(A[i], 1);
+            } else {
                 int newVal = hash.get(A[i]) + 1;
                 hash.put(A[i], newVal);
             }
         }
 
         //loop through hash map to ascertain if we can get a valid soln
-        // how: arrayLength - value <= 3
+        //how: arrayLength - value <= 3
         //method 1
-        for(Map.Entry<Integer, Integer> item : hash.entrySet()){
+        for (Map.Entry<Integer, Integer> item : hash.entrySet()) {
             int arrayLength = A.length;
-            if(arrayLength - item.getValue()<=3){
+            if (arrayLength - item.getValue() <= 3) {
                 return true;
             }
         }
@@ -74,5 +112,27 @@ public class MaxLengthSlideWindow {
 //        );
 
         return false;
+    }
+
+
+    //Chat GPT
+    public static int solution2(int[] A) {
+        int maxSegmentLength = 0;
+        int n = A.length;
+
+        for (int i = 0; i < n; i++) {
+            int count = 1;
+            Map<Integer, Integer> freq = new HashMap<>();
+            freq.put(A[i], 1);
+
+            for (int j = i + 1; j < n && j <= i + 3; j++) {
+                freq.put(A[j], freq.getOrDefault(A[j], 0) + 1);
+                count = Math.max(count, freq.get(A[j]));
+            }
+
+            maxSegmentLength = Math.max(maxSegmentLength, count + Math.min(3, n - i - count));
+        }
+
+        return maxSegmentLength;
     }
 }
