@@ -1,8 +1,8 @@
 package src.main.java.mock;
 
 import java.util.*;
-
-public class Solution {
+//1
+public class ValidTriplets {
 //    Sort
 //    Pass through the array (length-2) considering pairs , excluding the index under consideration
 //    two ptrs

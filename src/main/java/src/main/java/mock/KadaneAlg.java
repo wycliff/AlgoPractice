@@ -1,6 +1,6 @@
 package src.main.java.mock;
 
-public class Solution2 {
+public class KadaneAlg {
 
     public static int subArrayMax(int[] arr) {
         //loop through array
@@ -53,7 +53,6 @@ public class Solution2 {
 
 
     //prefix sum technique
-
 
     public static void main(String[] Args) {
         int [] arr = {3, 5, -9, 1, 3, -2, 3, 4, 7, 2, -9, 6, 3, 1, -5, 4};

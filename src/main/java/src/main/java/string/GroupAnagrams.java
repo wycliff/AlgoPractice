@@ -31,6 +31,7 @@ public class GroupAnagrams {
 
         for(String str : strs){
             char[] keyChars = str.toCharArray();
+            int r = keyChars.length;
             Arrays.sort(keyChars);
             String key = String.valueOf(keyChars);
 
