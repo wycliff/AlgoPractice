@@ -2,6 +2,7 @@ package src.main.java.Turing;
 
 import java.util.Arrays;
 
+//String Manipulation
 public class RemoveNewCharacter {
     public static char removeNewChar(String s, String t) {
         char[] indS = s.toCharArray();
@@ -31,6 +32,7 @@ public class RemoveNewCharacter {
     public static void main(String[] args) {
         String s = "abcd";
         String t= "ceadb";
+        //output : e
         System.out.println(removeNewChar(s,t));
     }
 }
