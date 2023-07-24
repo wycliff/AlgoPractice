@@ -29,7 +29,7 @@ public class Straicase {
             memo[0] = 1;
             return memo[0];
         } else{
-           memo[n]= ascend(1, n) + ascend(2, n) + ascend(3, n);
+           memo[n]= ascendMemo(1, n,memo) + ascendMemo(2, n,memo) + ascendMemo(3, n, memo);
         }
 
         return memo[n];
