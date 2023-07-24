@@ -3,7 +3,7 @@ package src.main.java.dynamicProgramming;
 public class PossibleBites2 {
     // 1,2 or 3 bites
 
-    // top down : recursive 3^n
+    // top down : recursive O(3^n)
     private static int bite(int n){
         if (n<3) {
             return n;

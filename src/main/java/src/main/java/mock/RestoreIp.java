@@ -66,6 +66,9 @@ public class RestoreIp {
     }
 
 
+    //Backtracking solution
+
+
     public static void main(String[] args) {
         String s = "hello";
         System.out.println(ipResolve("121212")); //n^3
