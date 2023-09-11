@@ -1,5 +1,8 @@
 package src.main.java.dynamicProgramming;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class MaxNoAdjacent {
 
     /***
@@ -13,11 +16,11 @@ public class MaxNoAdjacent {
         if (array.length < 1) {
             return 0;
         }
-        if(array.length == 1){
+        if (array.length == 1) {
             return array[0];
         }
 
-        int[] sumArray = new int[array.length];
+        int[] sumArray = new int[array.length];  //pre-fix sum
 
         for (int i = 0; i < array.length; i++) {
             int currMax = 0;
@@ -30,9 +33,7 @@ public class MaxNoAdjacent {
             sumArray[i] = currMax;
         }
         return Math.max(sumArray[array.length - 1], sumArray[array.length - 2]);
-        // return sumArray[array.length-1];
     }
-
 
     public static void main(String[] args) {
         int[] array = {75, 105, 120, 75, 90, 135};

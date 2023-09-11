@@ -1,7 +1,10 @@
 package src.main.java.mock;
 
 public class KadaneAlg {
-
+    /** Find largest subarray sum
+     * given an array : [2, -3, 4, -1, -2, 1, 5, -3]
+     * return : 4, -1, -2, 1, 5 = 7
+     */
     public static int subArrayMax(int[] arr) {
         //loop through array
         //start with window - 1,2,3,4
