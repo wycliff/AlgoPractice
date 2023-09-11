@@ -23,10 +23,13 @@ public class CoinChange {
     }
 
     public static void main(String[] args) {
-        int[] coins = {2}; // Example coin denominations (e.g., 1-cent, 2-cent, and 5-cent coins)
-        int amount = 3; // Example target amount
+        int[] coins = {1,2,5}; // Example coin denominations (e.g., 1-cent, 2-cent, and 5-cent coins)
+        int amount = 11; // Example target amount
 
         int minCoins = minCoins(coins, amount);
-        System.out.println("Minimum number of coins needed: " + minCoins); // Output: 3 (one 5-cent coin and two 3-cent coins)
+        System.out.println("Minimum number of coins needed: " + minCoins);
+
+        //Time  O(amount * c) c=coin denoms
+        //Space O(amount)
     }
 }

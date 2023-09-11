@@ -27,7 +27,7 @@ public class GroupAnagrams {
 
     public static List<List<String>> groupAnagrams(String[] strs) {
         List output = new ArrayList<List<String>>();
-        HashMap listMap = new HashMap<String, List<String>>();
+        HashMap<String, List<String>> listMap = new HashMap<>();
 
         for(String str : strs){
             char[] keyChars = str.toCharArray();
