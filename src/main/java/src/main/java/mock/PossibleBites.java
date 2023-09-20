@@ -13,6 +13,17 @@ public class PossibleBites {
         return  bite(n - 1) + bite(n - 2) + bite (n - 3);
     }
 
+    private static int bite(int n, int bite){
+        n = n-bite;
+        if(n==0){
+            return 1;
+        }else if(n<0){
+            return 0;
+        }else{
+            return bite(n,1) + bite(n,2) + bite(n, 3);
+        }
+    }
+
     //Memoize
     private static int bite(int n, Integer[] memo){
         if (memo[n] != null) {
@@ -22,7 +33,7 @@ public class PossibleBites {
         return memo[n];
     }
 
-    //bottom up: iterative
+    //bottom up/ iterative / true dp soln
     private static int biteIterative(int n){
         if (n == 0) {
             return 1;
@@ -46,5 +57,6 @@ public class PossibleBites {
     public static void main(String[] args) {
         Integer[] memo = {0, 1, 2, 4};
         System.out.println(biteIterative(8));
+        System.out.println(bite(8,0));
     }
 }

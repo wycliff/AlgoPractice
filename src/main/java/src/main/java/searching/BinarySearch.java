@@ -1,12 +1,15 @@
 package src.main.java.searching;
 
 public class BinarySearch {
+
+    //We want to find the index of the
     public static int binarySearch(int[] array, int target) {
         int right = array.length - 1;
         return binarySearchImpl(target, 0, right, array);
     }
 
     public static int binarySearchImpl(int target, int left, int right, int[] array) {
+        //empty array
         if (left > right) {
             return -1;
         }

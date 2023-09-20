@@ -4,17 +4,14 @@ public class Straicase {
 
     //top down: recursive O(3^n)
     public static int ascend(int hop, int n) {
-        int count = 0;
         n = n - hop;
         if (n == 0) {
-            return 1;
-        } else if (n < 1) {
+            return 1; //the on means of hoping
+        } else if (n < 0) {
             return 0;
         } else {
-            count += ascend(1, n) + ascend(2, n) + ascend(3, n);
+            return ascend(1, n) + ascend(2, n) + ascend(3, n);
         }
-
-        return count;
     }
 
     //Memoise ascend
