@@ -42,7 +42,6 @@ public class Palindrome {
 
       //  1 -> 2  -> 3 -> 4
 
-
         while (p2 != null) {
             p3 = p2.next;
             p2.next = p1;
